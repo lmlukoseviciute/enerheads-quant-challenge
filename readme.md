@@ -37,13 +37,11 @@ Given these constraints and assumptions:
 6. Minimal possible bid to place is 1 MW. Hence we are only able to charge 0.25 MWh for a 15 minute interval.
 
 Write a code that finds schedule that generates best profit (discharging revenue - charging costs) for a given interval of hours:
-1. Implement given constraints using pyomo library in a `SingleMarketSolver` class of .py file
+1. Implement given constraints using pyomo library in a `SingleMarketSolver` class of [BESS_knapsack_problem.ipynb](https://github.com/jkved/enerheads-quant-challenge/blob/main/BESS_knapsack_problem.ipynb) file
 2. Write a method that creates instances of template class `SingleMarketSolver` and calculates generated profit for entire dataset. Hint - you may want to run a single optimization task for one day and carry constraints for the other day.
 3. What is the optimal schedule optimization horizon? (i.e 24 hours, 25, 25.5?).
 4. Calculate 95% confidence interval for profit per MWh (EUR/MWh).
 5. Small depth of cycle is said to be a good metric to maintain BESS state of health. How would you suggest to calculate it?
-
-Please do the this task on a given template file [BESS_knapsack_problem.py](https://github.com/jkved/enerheads-quant-challenge/blob/main/BESS_knapsack_problem.ipynb)  so it is easier to compare the results. 
 
 ## :email: Result submission :email:
 
