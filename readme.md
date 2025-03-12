@@ -45,6 +45,6 @@ Write a code that finds schedule that generates best profit (discharging revenue
 
 Please do the this task on a given template file [BESS_knapsack_problem.py](https://github.com/jkved/enerheads-quant-challenge/blob/main/BESS_knapsack_problem.ipynb)  so it is easier to compare the results. 
 
-## Result submission
+## :email: Result submission :email:
 
 Send us a .zip or give us a link to your cloned repository. Present your findings in a jupyter notebooks, we'd also love to take a gander at the byproducts of your work - feel free to show training codes, etc. For 2nd task - save output dataframe to .csv.
