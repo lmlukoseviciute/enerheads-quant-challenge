@@ -6,7 +6,7 @@ Battery energy storage systems (BESS) play an increasingly important role in min
 
 ## :electric_plug: Imbalance and activations prediction model :electric_plug:
 
-You are given meteorological and market data for part of 2025 Q1. [Meteorological data file](https://github.com/jkved/enerheads-quant-challenge/blob/main/data/openmeteo_location0.csv)(s) contains day-ahead and intraday forecasts for meteorological variables for a single location. The data description is available on [OpenMeteo docs](https://open-meteo.com/en/docs) and the timezone here is in UTC. This will contain most of your predictors values. Day ahead value (with suffix '_day1') is known 24 hours before delivery time, intraday (no suffix column) is around 1 hour before delivery time.
+You are given meteorological and market data for part of 2025 Q1. [Meteorological data file](https://github.com/jkved/enerheads-quant-challenge/blob/main/data/openmeteo_location0.csv)(s) contains day-ahead and intraday forecasts for meteorological variables for a single location. The data description is available on [OpenMeteo docs](https://open-meteo.com/en/docs) and the timezone here is in UTC. This will contain most of your predictors values. Day ahead value (with suffix '_day1') is known 24 hours before delivery time, intraday (no suffix column) is around 1 hour before or at delivery time.
 Market data (predictors and target values) is given in file [market data file](https://github.com/jkved/enerheads-quant-challenge/blob/main/data/spot_balancing_2025Q1.csv), the data is also publicly available on [Baltic transparency dashboard](https://baltic.transparency-dashboard.eu/). Here index is in EET timezone and columns of interest are these:
 - `LT_mfrr_SA_up_activ` - mFRR upwards activations (in MW). Upwards means the system is in energy shortage and additional generation is activated or consumption turned off. In other words, battery can discharge in this timestep.
 - `LT_mfrr_SA_down_activ` - mFRR downwards activations (in MW). Downwards is the vice versa of upwards. In other words, battery can charge in this timestep.
@@ -14,18 +14,18 @@ Market data (predictors and target values) is given in file [market data file](h
 - `10YLT-1001A0008Q_DA_eurmwh` - this is Nord Pool day-ahead auction cleared price (EUR/MWh). Consider it to be part of predictors since it is known in advanced.
 
 Activations are Litgrid activated energy used to balance the system (to counter the imbalance). Train an imbalance and mFRR activations prediction models:
-1. Calculate deltas for meteorological values.
+1. Calculate forecast deltas for meteorological columns.
 2. Train and evaluate a prediction model for imbalance and mFRR activations. Which can you forecast more accurately? Can we use imbalance as a predictor for activations?
-3. Assume we know actual values of activations 30 minutes after, for example, at 12:00 we know value of 11:15. what autoregressive timeseries forecasting method is good for forecasting? How does it compare to your previous model?
+3. Assume we know actual values of activations 30 minutes after timestep ends, for example, at 12:00 we know value of 11:15. what autoregressive timeseries forecasting method is good for forecasting? How does it compare to your previous model?
 4. What tendencies do you see in imbalance volumes? For example, imbalance is positive for some hours, or happens almost certainly under some weather conditions? 
 
 ## :battery: BESS schedule optimization :battery:
 
 Every 15 minutes a balancing energy activations auction takes place where the price is cleared and Litgrid activates mFRR upwards or downwards (or none at all). You are given data of balancing market mFRR product in [market data file](https://github.com/jkved/enerheads-quant-challenge/blob/main/data/spot_balancing_2025Q1.csv). The columns of interest here are these:
-- `LT_mfrr_SA_up_activ` - mFRR upwards activations (in MW)  
-- `LT_mfrr_SA_down_activ` - mFRR downwards activations (in MW)  
-- `LT_up_sa_cbmp` - marginal price of mFRR upwards activations (in EUR/MWh)
-- `LT_down_sa_cbmp` - marginal price of mFRR downwards activations (in EUR/MWh)
+- `LT_mfrr_SA_up_activ` - cleared mFRR upwards activations (in MW)  
+- `LT_mfrr_SA_down_activ` - cleared mFRR downwards activations (in MW)  
+- `LT_up_sa_cbmp` - cleared marginal price of mFRR upwards activations (in EUR/MWh)
+- `LT_down_sa_cbmp` - cleared marginal price of mFRR downwards activations (in EUR/MWh)
 If you feel like you need further elaboration on the nature of the task - look up knapsack problem and linear programming.
 
 Given these constraints and assumptions:
