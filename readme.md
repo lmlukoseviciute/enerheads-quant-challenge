@@ -16,7 +16,7 @@ Market data (predictors and target values) is given in file [market data file](h
 Activations are Litgrid activated energy used to balance the system (to counter the imbalance). Train an imbalance and mFRR activations prediction models:
 1. Calculate forecast deltas for meteorological columns.
 2. Train and evaluate a prediction model for imbalance and mFRR activations. Which can you forecast more accurately? Can we use imbalance as a predictor for activations?
-3. Assume we know actual values of activations 30 minutes after timestep ends, for example, at 12:00 we know value of 11:15. what autoregressive timeseries forecasting method is good for forecasting? How does it compare to your previous model?
+3. Assume we know actual values of activations 30 minutes after timestep ends, for example, at 12:00 we know value of 11:15. what autoregressive timeseries forecasting method works well for this timeseries? How does forecasting this way compare to your previous model in terms of accuracy?
 4. What tendencies do you see in imbalance volumes? For example, imbalance is positive for some hours, or happens almost certainly under some weather conditions? 
 
 ## :battery: BESS schedule optimization :battery:
