@@ -4,6 +4,8 @@ Energy traded on wholesale markets contains rapidly growing amount of generation
 
 Battery energy storage systems (BESS) play an increasingly important role in minimizing said imbalance and/or providing flexibility to the market. On the one hand the battery may perform arbitrage in spot market, on the other hand it can provide balancing services to the grid (via products like aFRR, mFRR). All because it is a controlled generation asset. Tasks given here allow us to cover two parts of energy trading - predicting system imbalances and optimizing battery operation.
 
+You should code these tasks in Python, do them all or select any (part of) task that is of particular interest to you. Reach out to justas.kvedaravicius@enerheads.com with your results and let's talk about our future together!
+
 ## :electric_plug: Imbalance and activations prediction model :electric_plug:
 
 You are given meteorological and market data for part of 2025 Q1. [Meteorological data file](https://github.com/jkved/enerheads-quant-challenge/blob/main/data/openmeteo_location0.csv)(s) contains day-ahead and intraday forecasts for meteorological variables for a single location. The data description is available on [OpenMeteo docs](https://open-meteo.com/en/docs) and the timezone here is in UTC. This will contain most of your predictors values. Day ahead value (with suffix '_day1') is known 24 hours before delivery time, intraday (no suffix column) is around 1 hour before or at delivery time.
