@@ -9,15 +9,15 @@ Battery energy storage systems (BESS) play an increasingly important role in pro
 You are given meteorological and market data for part of 2025. [Meteorological data file](https://github.com/jkved/enerheads-quant-challenge/blob/main/data/weather_location_Vilnius.csv)(s) contains day-ahead and intraday forecasts for meteorological variables for a single location. The data description is available on [OpenMeteo docs](https://open-meteo.com/en/docs) and the timezone here is in UTC. This will contain some of your predictors values. Day ahead value (with suffix `previous_day1`) is known 24 hours before delivery time, intraday (no suffix column) is around 1 hour before or at delivery time.
 Market data (predictors and target values) is given in file [market data file](https://github.com/jkved/enerheads-quant-challenge/blob/main/data/market_data.csv), the data is also publicly available on [Baltic transparency dashboard](https://baltic.transparency-dashboard.eu/). Here index is in UTC timezone and two columns here are considered our target variables:
 - `10YLT-1001A0008Q_DA_eurmwh` - this is Nord Pool day-ahead auction cleared prices (EUR/MWh). It is resolved day before delivery day (day-ahead), i.e. today at 10:00 UTC we find out prices for tommorrow CET day (22:00 UTC today -> 22:00 UTC tommorrow). Only weather data with `previous_day1` suffix is available at inference time
-- `LT_up_sa_cbmp` or `LT_down_sa_cbmp` - this is mFRR activations prices. Generally only up or down activations take place at the same time so price is duplicated in these columns. It is resolved at delivery time (intraday). All weather data and Nord Pool prices are available at inference time but all other market data is visible with a 30 minute lag, i.e. for an mFRR activation price @ 11:00, all other market data is visible only up to (not including) 10:30.
+- `LT_up_sa_cbmp` or `LT_down_sa_cbmp` - this is mFRR activation prices. Generally only up or down activations take place at the same time so price is duplicated in these columns. It is resolved at delivery time (intraday). All weather data and Nord Pool prices are available at inference time but all other market data is visible with a 30 minute lag, i.e. for an mFRR activation price @ 11:00, all other market data is visible only up to (not including) 10:30.
 
 Complete the following tasks:
 1. Create Nord Pool prices forecasting model in day-ahead setting.
 2. Create mFRR prices forecasting model in intraday setting
-3. Implement certain evaluation metrics for prices: 
+3. Implement certain evaluation metrics for prices:
     1. you wish to accurately guess times when smallest and largest prices of the day take shape.
     2. you wish to know how many instances there are with spreads between smallest and largest prices being bigger than X (say, 200 EUR/MWh).
-4. Choose a collection of 2-3 plots to visualize both models performance
+4. Choose a collection of 2-3 plots to visualize the performance of both models.
 
 ## :battery: BESS schedule optimization :battery:
 
