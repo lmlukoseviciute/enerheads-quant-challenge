@@ -15,8 +15,8 @@ Complete the following tasks:
 1. Create Nord Pool prices forecasting model in day-ahead setting.
 2. Create mFRR prices forecasting model in intraday setting
 3. Implement certain evaluation metrics for prices: 
-    you wish to accurately guess times when smallest and largest prices of the day take shape.
-    you wish to know how many instances there are with spreads between smallest and largest prices being bigger than X (say, 200 EUR/MWh).
+    1. you wish to accurately guess times when smallest and largest prices of the day take shape.
+    2. you wish to know how many instances there are with spreads between smallest and largest prices being bigger than X (say, 200 EUR/MWh).
 4. Choose a collection of 2-3 plots to visualize both models performance
 
 ## :battery: BESS schedule optimization :battery:
