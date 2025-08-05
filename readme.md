@@ -21,7 +21,7 @@ Complete the following tasks:
 
 ## :battery: BESS schedule optimization :battery:
 
-Every 15 minutes a balancing energy activations auction takes place where the price is cleared and Litgrid activates mFRR upwards or downwards (or none at all). You are given data of balancing market mFRR product in [market data file](https://github.com/jkved/enerheads-quant-challenge/blob/main/data/spot_balancing_2025Q1.csv). The columns of interest here are these:
+Every 15 minutes a balancing energy activations auction takes place where the price is cleared and Litgrid activates mFRR upwards or downwards (or none at all). You are given data of balancing market mFRR product in [market data file](https://github.com/jkved/enerheads-quant-challenge/blob/main/data/market_data.csv). The columns of interest here are these:
 - `LT_mfrr_SA_up_activ` - cleared mFRR upwards activations (in MWh)  
 - `LT_mfrr_SA_down_activ` - cleared mFRR downwards activations (in MWh)  
 - `LT_up_sa_cbmp` - cleared marginal price of mFRR upwards activations (in EUR/MWh)
