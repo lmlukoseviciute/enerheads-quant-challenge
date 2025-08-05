@@ -2,3 +2,4 @@ meteo_dataset.py
 task_description.ipynb
 .env
 .cache.sqlite
+.ipynb_checkpoints
